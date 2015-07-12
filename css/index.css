@@ -1,0 +1,42 @@
+
+.container-fluid{
+	height: 100%;
+	background: url(../img/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	
+}
+.top-bar{
+height: 20%;
+margin-left: 7%
+}
+
+.drag-drop-container{
+	height: 35%;
+	width: 80%;
+}
+.upload-section{
+   height: 15%;
+   margin-left: 15%;
+   margin-right : 10%;
+}
+.compression-section{
+height: 15%;
+margin-left: 15%;
+margin-right : 10%;
+}
+.download-section{
+height: 15%;
+margin-left: 15%;
+margin-right : 10%;
+}
+
+.logo{
+	height: 200px;
+	width: 250px;
+}
+.buttonStyle{
+	margin-right: 5%;
+}

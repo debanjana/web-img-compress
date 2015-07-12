@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="css/index.css" />
+            
+        <title>Webimg Compress</title>
+        <script type='text/javascript'>
+
+    function loadImage() {
+        var input, file, fr, img;
+
+        if (typeof window.FileReader !== 'function') {
+            write("The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('imgfile');
+        if (!input) {
+            write("Um, couldn't find the imgfile element.");
+        }
+        else if (!input.files) {
+            write("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            write("Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = createImage;
+            fr.readAsDataURL(file);
+        }
+
+        function createImage() {
+            img = new Image();
+            img.onload = imageLoaded;
+            img.src = fr.result;
+        }
+
+        function imageLoaded() {
+            var canvas = document.getElementById("canvas")
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img,0,0);
+            alert(canvas.toDataURL("image/png"));
+        }
+
+        function write(msg) {
+            var p = document.createElement('p');
+            p.innerHTML = msg;
+            document.body.appendChild(p);
+        }
+    }
+
+</script>
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <div class="top-bar row" >
+            <img src="img/logo.png" class="logo col-md-4"></img>
+            <h1 class="col-md-8">Image Compression</h1>
+            </div>
+            <div class="drag-drop-container row">
+                
+                <!--will have the canvas here -->
+                <canvas id="canvas" class="drag-drop-box" style="border:1px solid #2859A8;"></canvas>
+            </div>
+
+            <div class="upload-section row">
+
+            <form action='#' onsubmit="return false;">
+                <input type='file' id='imgfile' />
+                <input type='button' id='btnLoad' value='Load' onclick='loadImage();' />
+            </form>
+
+            
+                <button type="button" class="btn btn-primary col-md-2 buttonStyle" title="Upload" name="upload-button">Upload</button>
+                <!--progress bar for upload-->
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success col-md-10" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                    60%
+                  </div>
+                </div>
+                </div>
+            <div class="compression-section row">
+                <button type="button" class="btn btn-primary buttonStyle col-md-2" title="Compress" name="compres-button">Compress</button>
+                <!--progress bar for upload-->
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success col-md-10" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                    60%
+                  </div>
+                </div>          
+            </div>
+            <div class="download-section row">
+                <button type="button" class="btn btn-success buttonStyle" title="Download" name="download-button">Download</button>
+                <!--progress bar for upload-->
+            </div>
+        </div>
+    </body>
+</html>
+
