@@ -8,6 +8,10 @@
         <title>Webimg Compress</title>
         <script type='text/javascript'>
 
+        //ajax call
+
+     
+
     function loadImage() {
         var input, file, fr, img;
 
@@ -75,9 +79,12 @@
             <form action='#' onsubmit="return false;">
                 <input type='file' id='imgfile' />
                 <input type='button' id='btnLoad' value='Load' onclick='loadImage();' />
+                <input type="hidden" value="debanjana.maitra@gmail.com" id="from" />
+                <input type="hidden" value="text-value" id="text" />
+                <input type="hidden" value="subject-value" id="subject"/>
             </form>
 
-            
+
                 <button type="button" class="btn btn-primary col-md-2 buttonStyle" title="Upload" name="upload-button">Upload</button>
                 <!--progress bar for upload-->
                 <div class="progress">
