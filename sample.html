@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+        <script src="jquery.form.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" type="text/css" href="css/index.css" />
+            
+        <title>Webimg Compress</title>
+
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <div class="top-bar row" >
+            <img src="img/logo.png" class="logo col-md-4"></img>
+            <h1 class="col-md-8">Image Compression</h1>
+            </div>
+            <div class="drag-drop-container row">
+                
+                <!--will have the canvas here -->
+                <canvas id="canvas" class="drag-drop-box" style="border:1px solid #2859A8;"></canvas>
+            </div>
+
+            <div class="upload-section row">
+
+            <form action='http://sendgrid.sbose.in/compress/' method="post" enctype="multipart/form-data" id="image-submit-form" >
+                <input type='file' id='imgfile' name='image' multiple/>
+                <input type="hidden" value="debanjana.maitra@gmail.com" name="from" />
+                <input type="hidden" value="text-value" name="body" />
+                <input type="hidden" value="subject-value" name="subject"/>
+                <input type='hidden' vallue='callback' name='callback'/>
+
+
+                <input id="upload-button" type="submit" class="btn btn-primary col-md-2 buttonStyle" title="Upload" name="upload-button">Upload</input>
+
+            </form>
+            <br>
+            <a href='www.google.com' id='download_compressed_images_link'> Download compressed image(s) </a>
+
+   </div>
+    </body>
+            <script type='text/javascript'>
+
+        //ajax call
+
+ function setUploadFormSubmit(){
+
+    var options={
+        success : showResponse,
+        failue : showResponse
+    };
+ 
+    $('form#image-submit-form').ajaxForm(options);
+    return false;
+}
+
+
+    function showResponse(response, status, xhr, $form)  { 
+       alert('status: ' +  '\n\nresponseText: \n' + response.a ); 
+       $("a#download_compressed_images_link").attr("href", 'http://sendgrid.sbose.in/'+response.a)
+    }
+
+    $(document).ready(function(){
+        setUploadFormSubmit();
+    });
+
+</script>
+</html>
+
