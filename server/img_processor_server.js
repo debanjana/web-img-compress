@@ -40,11 +40,11 @@ app.all('*', function(req, res, next) {
   next();
 });
  
-
+app.set("view engine", 'html' ) ;// {layout: false});
 app.set('port', 8123);
 app.use(multer({ dest: './uploads/'}))
 app.use(express.static(__dirname + '/uploads'));
-
+app.use(express.static(__dirname + '/../client'));
 
 function compress_images( req ) {
   var execSync = require('child_process').execSync;
@@ -154,7 +154,7 @@ app.post('/compress/', function( req  , res ) {
 	for ( var i = 0 ; i < all_files.length ; i++ ) {
 
 
-		    var attachment = all_files[0];
+		    var attachment = all_files[i];
 		    var uploaded_path =  attachment.path ;
 		    var original_name =  attachment.originalname ;
 		    var compressed_path = "./uploads/compressed-"+original_name ; //(( attachment );
@@ -257,5 +257,5 @@ exexFile(file, args, options, function(error, stdout, stderr) {
 
 
 app.get('/', function(req, res){
-  res.sendfile('../sample.html');
+  res.render('sample.html');
 });
