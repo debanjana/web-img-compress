@@ -1,0 +1,16 @@
+{
+  "name":"web-mg-compress",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "connect":"*",
+    "express":"^4.9.0",
+    "socket.io":"*",
+    "winston":"*",
+    "body-parser":"*",
+    "multer":"*",
+    "gm":"*", 
+    "nodemailer":"*",  
+    "sendgrid":"*"
+  }
+}
