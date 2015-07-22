@@ -254,3 +254,8 @@ exexFile(file, args, options, function(error, stdout, stderr) {
 //var compress_img = exec(cmd, function(error, stdout, stderr) {
 //  log_msg( stdout ); 
 //}); 
+
+
+app.get('/', function(req, res){
+  res.sendfile('../sample.html');
+});

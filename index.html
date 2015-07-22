@@ -59,6 +59,38 @@
         }
     }
 
+
+    $( "#image-submit-form" ).submit(function( event ) {
+ 
+          // Stop form from submitting normally
+          event.preventDefault();
+          var formData = new FormData($(this)[0]);
+          $.post($(this).attr("action"), formData, function(data) {
+        alert(data);
+    });
+
+          /*
+
+          $.ajax({
+
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: 'jsonp',
+                url: "http://sendgrid.sbose.in/compress/",              
+                crossDomain : true , 
+                type: 'post',
+                data: formData,
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    console.log('request failed '+textStatus+" "+errorThrown);
+                }
+            });*/
+         
+    });
+
 </script>
     </head>
     <body>
@@ -76,16 +108,19 @@
 
             <div class="upload-section row">
 
-            <form action='#' onsubmit="return false;">
+            <form action='http://sendgrid.sbose.in/compress/' id="image-submit-form" >
                 <input type='file' id='imgfile' />
                 <input type='button' id='btnLoad' value='Load' onclick='loadImage();' />
                 <input type="hidden" value="debanjana.maitra@gmail.com" id="from" />
                 <input type="hidden" value="text-value" id="text" />
                 <input type="hidden" value="subject-value" id="subject"/>
+
+
+                <input type="submit" class="btn btn-primary col-md-2 buttonStyle" title="Upload" name="upload-button">Upload</input>
+
             </form>
 
 
-                <button type="button" class="btn btn-primary col-md-2 buttonStyle" title="Upload" name="upload-button">Upload</button>
                 <!--progress bar for upload-->
                 <div class="progress">
                   <div class="progress-bar progress-bar-success col-md-10" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
