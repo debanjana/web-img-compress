@@ -42,7 +42,7 @@ app.all('*', function(req, res, next) {
  
 app.set("view engine", 'html' ) ;// {layout: false});
 app.set('port', 8123);
-app.use(multer({ dest: './uploads/'}))
+app.use(multer({ dest: './uploads/'}).array('image'));
 app.use(express.static(__dirname + '/uploads'));
 app.use(express.static(__dirname + '/../client'));
 
@@ -150,7 +150,7 @@ app.post('/compress/', function( req  , res ) {
 
 	
 	console.log( req.files )
-        var all_files = req.files['image'] ;
+        var all_files = req.files ;
 	for ( var i = 0 ; i < all_files.length ; i++ ) {
 
 
