@@ -1,7 +1,7 @@
 
 .container-fluid{
 	height: 100%;
-	background: url(../img/background.jpg) no-repeat center center fixed; 
+	/*background: url(../img/background.jpg) no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -10,33 +10,79 @@
 }
 .top-bar{
 height: 20%;
-margin-left: 7%
+margin-left: 7%;
+}
+#image-submit-form
+{
+	height: 100%;
+}
+.selection-section
+{
+	margin-top: 4%;
+	height: 30%;
+	margin-left: 8%;
 }
 
-.drag-drop-container{
-	height: 35%;
-	width: 80%;
-}
+
 .upload-section{
-   height: 15%;
-   margin-left: 15%;
-   margin-right : 10%;
+   /*height: 15%;
+   margin-left: 15%;*/
+   margin-left: 1%;
+   margin-top: 2%;
+   margin-right : 9%;
 }
 .compression-section{
-height: 15%;
+/*height: 15%;
 margin-left: 15%;
-margin-right : 10%;
-}
-.download-section{
-height: 15%;
-margin-left: 15%;
-margin-right : 10%;
+margin-right : 10%;*/
 }
 
+.download-section{
+height: 50%;
+font-family: 'Courier New';
+font-size: large;
+}
+.main-body
+{
+	height: 70%;
+	margin-left: 10%;
+	margin-right: 10%;
+	background: rgba(223, 223, 209, 0.55);
+	border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
+
+
 .logo{
-	height: 200px;
-	width: 250px;
+	height: 80%;
+	width: 8%;
 }
 .buttonStyle{
 	margin-right: 5%;
 }
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    color: #FFF;
+    background-color: #504D4D;
+    border-color: #BB4949;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    /*top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;*/
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: blue;
+    cursor: inherit;
+    display: block;
+}
+
