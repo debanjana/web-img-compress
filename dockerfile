@@ -32,6 +32,6 @@ RUN chmod +x /home/projects/web-img-compress/server/run.sh
 EXPOSE 8123
 
 RUN sudo apt-get install -y python
-RUN sudo apt-get install -y  build-essential
+#RUN sudo apt-get install -y  build-essential
 # Execute the scrip
 CMD [ '/home/projects/web-img-compress/server/run.sh' ] 
