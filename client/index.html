@@ -39,9 +39,9 @@
                 
                 </form>
                 <br>
-                <span class="row download-section">
+                <span id="download_link" class="row download-section">
 
-                    <a href='www.google.com'  id='download_compressed_images_link' >  <img src="img/download.svg" > Download compressed image(s) </a>
+                    <a href='www.google.com'  id='download_compressed_images_link' >  <img src="img/download.svg" >  </a>
                 </span>
                 
 
@@ -56,7 +56,7 @@
 
     var options={
         success : showResponse,
-        failue : showResponse,
+        failue : showError,
         uploadProgress: calculateProgress
     };
  
@@ -66,6 +66,7 @@
 
     function calculateProgress(event,position,total,percentComplete)
     {
+
         console.log(percentComplete);
         $('#upload-progress').attr('aria-valuenow' ,  percentComplete) ;
         $('#upload-progress').css('width' , percentComplete+'%');
@@ -73,13 +74,38 @@
     }
 
 
+    function showError(){
+
+      reset_progress_bar();
+      alert( "Error processing images : " + response.a );
+
+    }
     function showResponse(response, status, xhr, $form)  { 
        alert('status: ' +  '\n\nresponseText: \n' + response.a ); 
        $("a#download_compressed_images_link").attr("href", '/'+response.a)
+
+       // update progress bar
+       reset_progress_bar();
+       $("#download_link").css("display","hidden");
+    }
+
+    function show_download_link(){
+         $("#download_link").css("display","block");
+    }
+
+    function hide_download_link(){
+         $("#download_link").css("display","none");
+    }
+
+    function reset_progress_bar(){
+      // update progress bar
+       $('#upload-progress').attr('aria-valuenow' ,  '0') ;
+       $('#upload-progress').css('width' , '0%');
     }
 
     $(document).ready(function(){
         setUploadFormSubmit();
+        hide_download_link();
     });
 
 </script>
