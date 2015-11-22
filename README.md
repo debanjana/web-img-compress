@@ -13,7 +13,7 @@ Getting started :
 
 - Install Docker.
 - Pull Image.
-- Start container.
+- Start container. ( docker run -p 8123:8123 web-img-comp /home/projects/web-img-compress/server/run.sh )
 - Acccess the web app on your browser as http://127.0.0.1:<Port> 
 - Multi-select the photos and upload ( to the web app running on your local ).
 - Download the generated ZIP of compressed photos.
